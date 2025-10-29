@@ -28,8 +28,8 @@ This repository and all its educational content are protected under
 
 If you love **GraphzLive**, consider supporting the mission 💖  
 
-[![Donate](https://img.shields.io/badge/☕_Buy_Me_a_Coffee-blue?style=for-the-badge)](https://t.me/yourtelegramlink)  
-[![Follow on GitHub](https://img.shields.io/github/followers/juyel-hossain?label=Follow%20on%20GitHub&style=for-the-badge)](https://github.com/juyel-hossain)
+[![Donate](https://img.shields.io/badge/☕_Buy_Me_a_Coffee-blue?style=for-the-badge)](https://t.me/JuyelLive)  
+[![Follow on GitHub](https://img.shields.io/github/followers/juyel-hossain?label=Follow%20on%20GitHub&style=for-the-badge)](https://github.com/juyel-dev)
 
 ---
 
