@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GraphzLive 🌐 - Live Knowledge. Visualized Smartly.</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <div class="container">
+      <div class="logo-section">
+        <h1 class="logo">🎯 GraphzLive</h1>
+        <p class="tagline">Live Knowledge. Visualized Smartly.</p>
+      </div>
+      
+      <div class="search-section">
+        <div class="search-container">
+          <input type="text" id="searchInput" placeholder="Search graphs by name, tags, subject..." class="search-input">
+          <span class="search-icon">🔍</span>
+        </div>
+        <div class="filter-chips" id="filterChips">
+          <!-- Dynamic filter chips will be added here -->
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a href="admin.html" class="nav-link">Admin</a>
+        <button id="themeToggle" class="theme-toggle">🌙</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main">
+    <div class="container">
+      <!-- Stats Bar -->
+      <div class="stats-bar">
+        <span id="graphCount">Loading graphs...</span>
+        <span class="live-dot"></span>
+        <span>Live</span>
+      </div>
+
+      <!-- Graph Container -->
+      <div id="graphContainer" class="graph-container">
+        <div class="loading">Loading visual knowledge...</div>
+      </div>
+
+      <!-- No Results -->
+      <div id="noResults" class="no-results hidden">
+        <h3>No graphs found</h3>
+        <p>Try different keywords or browse all graphs</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Graph Modal -->
+  <div id="graphModal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="modalContent"></div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <h4>GraphzLive</h4>
+          <p>Visual wikipedia for every learner</p>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Connect</h4>
+          <div class="social-links">
+            <a href="https://t.me/graphzlive" target="_blank" class="social-link">📢 Telegram</a>
+            <a href="#" class="social-link">📷 Instagram</a>
+            <a href="#" class="social-link">🐦 Twitter</a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4>Support</h4>
+          <button id="donateBtn" class="donate-btn">❤️ Donate</button>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 GraphzLive. Built with 💙 for learners.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script type="module" src="firebase-config.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
