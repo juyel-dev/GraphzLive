@@ -94,6 +94,51 @@
     </div>
   </footer>
 
+  <!-- Donation Widget -->
+  <div id="donationWidget" class="donation-widget">
+    <button id="donationToggle" class="donation-toggle">
+      ❤️ Support Us
+    </button>
+    <div id="donationPanel" class="donation-panel hidden">
+      <div class="donation-header">
+        <h4>Support GraphzLive</h4>
+        <button class="close-donation">&times;</button>
+      </div>
+      <div class="donation-options">
+        <div class="donation-option" data-amount="50">
+          <span>☕ Coffee</span>
+          <small>₹50</small>
+        </div>
+        <div class="donation-option" data-amount="100">
+          <span>📚 Notes</span>
+          <small>₹100</small>
+        </div>
+        <div class="donation-option" data-amount="200">
+          <span>🎓 Course</span>
+          <small>₹200</small>
+        </div>
+        <div class="donation-option custom-amount">
+          <span>💝 Custom</span>
+          <input type="number" placeholder="Amount" min="10">
+        </div>
+      </div>
+      <div class="payment-methods">
+        <button class="payment-btn upi" onclick="openUPI()">
+          📱 UPI Payment
+        </button>
+        <button class="payment-btn razorpay" onclick="openRazorpay()">
+          💳 Online Payment
+        </button>
+        <a href="https://ko-fi.com/graphzlive" target="_blank" class="payment-btn kofi">
+          ☕ Buy Me Coffee
+        </a>
+      </div>
+      <div class="donation-stats">
+        <small>❤️ 127 supporters this month</small>
+      </div>
+    </div>
+  </div>
+
   <!-- Scripts -->
   <script type="module" src="firebase-config.js"></script>
   <script type="module" src="app.js"></script>
