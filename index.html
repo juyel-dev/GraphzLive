@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graphz - Visual Knowledge Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-auth-compat.js"></script>
+</head>
+<body>
+    <!-- Donation Button -->
+    <a href="#donation" class="donation-top-btn">
+        <i class="fas fa-heart"></i> Support Us
+    </a>
+
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-chart-network"></i>
+                    </div>
+                    <span>Graphz</span>
+                </a>
+                <nav>
+                    <ul>
+                        <li><a href="#" class="active" id="nav-home"><i class="fas fa-home"></i> Home</a></li>
+                        <li><a href="#" id="nav-subjects"><i class="fas fa-book"></i> Subjects</a></li>
+                        <li><a href="#" id="nav-favorites"><i class="fas fa-star"></i> Favorites</a></li>
+                        <li><a href="#" id="nav-admin"><i class="fas fa-user-shield"></i> Admin</a></li>
+                    </ul>
+                </nav>
+                <div class="auth-buttons" id="auth-buttons">
+                    <a href="#" class="btn btn-outline" id="login-btn"><i class="fas fa-sign-in-alt"></i> Login</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- User Interface -->
+    <div id="user-interface">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Visual Knowledge Platform</h1>
+                    <p>Explore hundreds of educational graphs across science and mathematics.</p>
+                    <div class="hero-buttons">
+                        <a href="#graphs" class="btn btn-secondary"><i class="fas fa-rocket"></i> Explore Graphs</a>
+                        <a href="#subjects" class="btn btn-accent"><i class="fas fa-graduation-cap"></i> Browse Subjects</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Search Section -->
+        <section class="container">
+            <div class="search-section">
+                <div class="search-container">
+                    <input type="text" class="search-box" id="search-input" placeholder="Search graphs...">
+                    <button class="btn" id="search-btn"><i class="fas fa-search"></i> Search</button>
+                </div>
+                
+                <div class="filter-section">
+                    <div class="filter-title">
+                        <i class="fas fa-filter"></i> Filter by Subject:
+                    </div>
+                    <div class="filter-chips" id="filter-chips">
+                        <!-- Dynamic filters -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Graph Grid -->
+        <section class="container" id="graphs">
+            <h2 class="section-title"><i class="fas fa-chart-bar"></i> Popular Graphs</h2>
+            <div class="graph-grid" id="graph-grid">
+                <!-- Dynamic content -->
+            </div>
+        </section>
+
+        <!-- Donation Section -->
+        <section class="container" id="donation">
+            <div class="donation-section">
+                <div class="donation-content">
+                    <h2 class="donation-title">Support Our Mission</h2>
+                    <p class="donation-text">Your donation helps us create more educational content.</p>
+                    <div class="donation-options">
+                        <a href="upi://pay?pa=graphzlive@upi&pn=GraphzLive&am=100&cu=INR" class="donation-option">
+                            <i class="fas fa-mobile-alt"></i> UPI
+                        </a>
+                        <a href="https://ko-fi.com/graphzlive" target="_blank" class="donation-option">
+                            <i class="fas fa-coffee"></i> Ko-fi
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-panel">
+        <div class="container">
+            <div class="admin-header">
+                <h2 class="section-title"><i class="fas fa-user-shield"></i> Admin Dashboard</h2>
+                <button class="btn btn-danger" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+            
+            <div class="admin-form">
+                <h3>Add New Graph</h3>
+                <form id="graph-form">
+                    <div class="form-group">
+                        <label class="form-label">Graph Name</label>
+                        <input type="text" class="form-input" id="graph-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Subject</label>
+                        <input type="text" class="form-input" id="graph-subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Image URL</label>
+                        <input type="text" class="form-input" id="graph-image">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-textarea" id="graph-description"></textarea>
+                    </div>
+                    <button type="submit" class="btn">Add Graph</button>
+                </form>
+            </div>
+            
+            <div class="graphs-table">
+                <div class="table-header">
+                    <div>Name</div>
+                    <div>Subject</div>
+                    <div>Actions</div>
+                </div>
+                <div id="admin-graphs-list">
+                    <!-- Dynamic content -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="login-modal" class="modal">
+        <div class="login-form">
+            <div class="modal-close" id="close-login"><i class="fas fa-times"></i></div>
+            <h2 class="login-title">Login</h2>
+            <form id="login-form">
+                <div class="form-group">
+                    <input type="email" class="form-input" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-input" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn" style="width:100%">Login</button>
+            </form>
+            <div class="auth-options">
+                <button class="btn btn-outline" id="google-signin">
+                    <i class="fab fa-google"></i> Sign in with Google
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
